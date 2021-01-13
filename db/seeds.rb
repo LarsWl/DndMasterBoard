@@ -4,4 +4,15 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#
+
+campaign = Campaign.create(name: 'campaign_1')
+
+1.upto 3 do |i|
+  chapter = Chapter.create(name: "chapter_#{i}", campaign: campaign)
+
+  1.upto 2 do |j|
+    act = Act.create(name: "act_#{j}", chapter: chapter)
+    NotPlayableCharacter.create(name: "npc_#{i*j}", act: act, campaign: campaign)
+  end
+end
