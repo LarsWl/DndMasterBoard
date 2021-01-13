@@ -1,0 +1,2 @@
+class NotPlayableCharacter < ApplicationRecord
+end
