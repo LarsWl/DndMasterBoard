@@ -1,0 +1,24 @@
+<div class = 'information'>
+  <% campaign_attributes(campaign).each do |attribute| %>
+    <div class = 'information__block'
+         data-controller = 'campaigns'
+         data-campaigns-inactive-text = 'Развернуть'
+         data-campaigns-active-text = 'Свернуть'
+    >
+      <div class = 'd-flex justify-content-between'>
+        <h5><%= attribute[:title] %></h5>
+        <button class = 'btn btn-primary'
+                data-action = "campaigns#expand"
+                data-campaigns-target = 'expandButton'
+        >
+        </button>
+      </div>
+
+      <%= turbo_frame_tag(attribute[:name], 'data-campaigns-target' => 'text') do %>
+        <%= attribute[:text] %>
+
+        <%= link_to 'Редактировать', edit_campaign_path(campaign) %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

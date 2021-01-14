@@ -1,0 +1,7 @@
+<turbo-frame id = 'body' class = 'col-9 ml-auto'>
+  <div class = 'row campaign'>
+    <div class = 'col'> <h3><%= @campaign.name %></h3></div>
+    <%= render partial: 'campaigns/partials/information', locals: { campaign: @campaign} %>
+    <%= render partial: 'campaigns/partials/information', locals: { campaign: @campaign} %>
+  </div>
+</turbo-frame>

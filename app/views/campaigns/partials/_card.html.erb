@@ -1,0 +1,10 @@
+<turbo-frame id = "card" class = 'col-3'>
+  <a href = <%= campaign_path(campaign.id) %> data-turbo-frame="_top">
+    <div class = 'title'>
+      <h4> Название проекта: <%= campaign.name %> </h4>
+    </div>
+  </a>
+  <div сlass = 'campaign_description m-2 p-2'>
+    Описание кампании: <%= campaign.description %>
+  </div>
+</turbo-frame>

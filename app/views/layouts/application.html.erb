@@ -13,6 +13,12 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%=render partial: 'layouts/header' %>
+  <div class = 'container-fluid'>
+    <div class = 'row'>
+      <%= render partial: 'layouts/sidebar' %>
+      <%= yield %>
+    </div>
+  </div>
   </body>
 </html>
