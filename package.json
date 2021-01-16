@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "jodit": "^3.5.4"
+    "@rails/webpacker": "5.2.1",
+    "jodit": "^3.5.4",
+    "stimulus": "^2.0.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
   }
 }

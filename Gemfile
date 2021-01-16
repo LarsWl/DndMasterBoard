@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.0'
 
 gem 'acts_as_list'
+gem 'webpacker'
 gem 'annotate'
 gem 'awesome_nested_set'
 gem 'dry-validation'
