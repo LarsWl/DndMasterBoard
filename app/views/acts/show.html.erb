@@ -1,0 +1,9 @@
+<turbo-frame id = 'body' class = 'col-9 ml-auto'>
+  <div class = 'row chapter'>
+    <div class = 'col'> <h2><%= @act.name %></h2></div>
+    <%= render partial: 'acts/partials/information', locals: { act: @act} %>
+
+    <div class = 'col'> <h3>Сюжет</h3></div>
+    <%= render partial: 'acts/partials/plot', locals: { act: @act} %>
+  </div>
+</turbo-frame>

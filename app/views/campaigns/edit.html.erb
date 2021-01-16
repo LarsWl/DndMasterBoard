@@ -1,4 +1,4 @@
-<% campaign_attributes(@campaign).each do |attribute| %>
+<% record_information_attributes(@campaign).each do |attribute| %>
   <%= turbo_frame_tag attribute[:name] do %>
     <%=form_with(model: @campaign) do |form| %>
       <div class = 'input-group mb-1 mt-2'>

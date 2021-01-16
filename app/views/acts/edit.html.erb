@@ -1,0 +1,13 @@
+<% record_information_attributes(@act).each do |attribute| %>
+  <%= turbo_frame_tag attribute[:name] do %>
+    <%=form_with(model: @act) do |form| %>
+      <div class = 'input-group mb-1 mt-2'>
+        <%= form.send(attribute[:type], attribute[:name], class: 'form-control', rows: 10) %>
+      </div>
+
+      <div class = 'input-group mb-1 mt-2'>
+        <%= form.submit 'Сохранить', class: 'btn btn-primary'%>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

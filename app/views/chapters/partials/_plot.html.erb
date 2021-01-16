@@ -1,0 +1,25 @@
+<div class = 'plot'>
+  <% chapter.acts.each_with_index do |act, index| %>
+    <div class = 'act_block'
+         data-controller = 'expand'
+         data-expand-inactive-text = '+'
+         data-expand-active-text = '-'
+    >
+      <div class = 'd-flex justify-content-between'>
+        <%= link_to(act_path(act), 'data-turbo-frame' => "_top") do %>
+          <h5><%= "Акт #{index + 1}. #{act.name}"%></h5>
+        <% end %>
+
+        <button class = 'btn btn-primary'
+                data-expand-target = 'expandButton'
+                data-action = "expand#expand"
+        >
+        </button>
+      </div>
+
+      <div data-expand-target = 'expandValue'>
+        <% act.description %>
+      </div>
+    </div>
+  <% end %>
+</div>

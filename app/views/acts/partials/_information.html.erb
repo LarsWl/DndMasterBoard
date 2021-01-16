@@ -1,0 +1,27 @@
+<div class = 'information'>
+  <% record_information_attributes(act).each do |attribute| %>
+    <div class = 'information__block'
+         data-controller = 'expand'
+         data-expand-inactive-text = '+'
+         data-expand-active-text = '-'
+    >
+      <div class = 'd-flex justify-content-between'>
+        <h5><%= attribute[:title] %></h5>
+        <button class = 'btn btn-primary'
+                data-action = "expand#expand"
+                data-expand-target = 'expandButton'
+        >
+        </button>
+      </div>
+
+      <%= turbo_frame_tag(attribute[:name], 'data-expand-target' => 'expandValue') do %>
+        <%= attribute[:text] %>
+
+        <%= link_to 'Редактировать', edit_act_path(act) %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <%= link_to 'Перейти к главе', campaign_path(act.chapter), 'data-turbo-frame'=>"_top" %>
+</div>
