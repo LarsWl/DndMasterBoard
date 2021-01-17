@@ -1,0 +1,2 @@
+class MasterCharacter < Character
+end

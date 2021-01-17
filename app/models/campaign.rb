@@ -2,5 +2,5 @@
 
 class Campaign < ApplicationRecord
   has_many :chapters
-  has_many :not_playable_characters
+  has_many :master_characters
 end

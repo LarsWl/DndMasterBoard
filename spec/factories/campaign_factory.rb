@@ -23,14 +23,4 @@ FactoryBot.define do
 
     chapter
   end
-
-  factory :not_playable_character do
-    name { 'npc_name' }
-    description { 'npc_description' }
-    history { 'npc_history' }
-    notes { 'npc_notes' }
-
-    campaign
-    act
-  end
 end
