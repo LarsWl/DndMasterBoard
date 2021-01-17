@@ -1,5 +1,4 @@
 import { Controller } from 'stimulus'
-import Jodit from 'jodit'
 
 export default class extends Controller {
     static targets = [ "expandButton", 'expandValue', 'test' ]
@@ -7,6 +6,7 @@ export default class extends Controller {
     initialize() {
         this.activeText = this.data.get("active-text");
         this.inactiveText = this.data.get("inactive-text");
+        this.id = this.data.get('id')
     }
 
     connect() {
@@ -27,9 +27,5 @@ export default class extends Controller {
     refresh() {
         this.expandValueTarget.style.display = this.active ? 'block' : 'none'
         this.expandButtonTarget.innerHTML = this.active ? this.activeText : this.inactiveText
-
-        // let editor = new EditorJS()
-        //
-        // console.log(editor)
     }
 }

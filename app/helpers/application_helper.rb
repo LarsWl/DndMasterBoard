@@ -11,7 +11,8 @@ module ApplicationHelper
         name: attr,
         title: I18n.t("attributes.#{attr}"),
         text: record.send(attr),
-        type: :text_area
+        type: :text_area,
+        id: "record_#{record.id}_#{attr}"
       }
     end.compact
   end

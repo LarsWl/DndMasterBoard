@@ -1,10 +1,11 @@
 <div class = 'information'>
   <% record_information_attributes(campaign).each do |attribute| %>
-    <div class = 'information__block'
-         data-controller = 'expand'
-         data-expand-inactive-text = '+'
-         data-expand-active-text = '-'
-    >
+    <%= content_tag :div,
+                    class:'information__block',
+                    'data-controller' => 'expand',
+                    'data-expand-id' => "editor_#{attribute[:id]}",
+                    'data-expand-inactive-text' => '+',
+                    'data-expand-active-text' => '-' do %>
       <div class = 'd-flex justify-content-between'>
         <h5><%= attribute[:title] %></h5>
         <button class = 'btn btn-primary'
@@ -15,13 +16,13 @@
       </div>
 
       <%= turbo_frame_tag(attribute[:name], 'data-expand-target' => 'expandValue') do %>
-        <%= attribute[:text] %>
+        <%= sanitize attribute[:text] %>
 
         <%= link_to 'Редактировать', edit_campaign_path(campaign) %>
       <% end %>
 
       <div data-expand-target = 'test'>
       </div>
-    </div>
+      <% end %>
   <% end %>
 </div>

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,51 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_113_185_705) do
+ActiveRecord::Schema.define(version: 2021_01_13_181122) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'acts', force: :cascade do |t|
-    t.string 'name', default: '', null: false
-    t.string 'description'
-    t.string 'notes'
-    t.bigint 'chapter_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['chapter_id'], name: 'index_acts_on_chapter_id'
+  create_table "campaigns", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "description"
+    t.string "history"
+    t.string "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'campaigns', force: :cascade do |t|
-    t.string 'name', default: '', null: false
-    t.string 'description'
-    t.string 'history'
-    t.string 'notes'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-  end
-
-  create_table 'partials', force: :cascade do |t|
-    t.string 'name', default: '', null: false
-    t.string 'description'
-    t.string 'notes'
-    t.bigint 'campaign_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['campaign_id'], name: 'index_chapters_on_campaign_id'
-  end
-
-  create_table 'not_playable_characters', force: :cascade do |t|
-    t.string 'name', default: '', null: false
-    t.string 'description'
-    t.string 'history'
-    t.string 'notes'
-    t.string 'characteristics'
-    t.string 'skills'
-    t.bigint 'campaign_id'
-    t.bigint 'act_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['act_id'], name: 'index_not_playable_characters_on_act_id'
-    t.index ['campaign_id'], name: 'index_not_playable_characters_on_campaign_id'
-  end
 end
