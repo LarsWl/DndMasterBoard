@@ -24,4 +24,8 @@
       </ul>
     </div>
   <% end %>
+
+  <turbo-frame id = 'new_chapter'>
+    <%= link_to 'Создать главу', new_chapter_path(params: { campaign_id: campaign.id }) %>
+  </turbo-frame>
 </div>

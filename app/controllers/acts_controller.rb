@@ -1,12 +1,12 @@
 class ActsController < ApplicationController
-  before_action :set_act, on: %i[show edit update]
+  before_action :set_act, only: %i[show edit update]
 
   def show; end
 
   def edit; end
 
   def update
-    @act.update(act.params)
+    @act.update(act_params)
   end
 
   private

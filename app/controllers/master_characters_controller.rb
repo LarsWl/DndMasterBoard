@@ -1,12 +1,12 @@
 class MasterCharactersController < ApplicationController
-  before_action :set_master_character, on: %i[show edit update]
+  before_action :set_master_character, only: %i[show edit update]
 
   def show; end
 
   def edit; end
 
   def update
-    @master_character.update()
+    @master_character.update(master_character_params)
   end
 
   private
@@ -18,6 +18,7 @@ class MasterCharactersController < ApplicationController
   def master_character_params
     params.require(:master_character).permit(
       :description,
+      :notes,
       :name
     )
   end

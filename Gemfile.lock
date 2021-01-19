@@ -212,6 +212,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.8.2)
+    rexml (3.2.4)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -281,8 +282,6 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    wysiwyg-rails (3.2.2)
-      railties (>= 3.2, < 7.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.4.2)
@@ -306,6 +305,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 6.1.0)
+  rexml
   rspec-rails
   sass-rails (>= 6)
   scrypt
@@ -315,7 +315,6 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker
-  wysiwyg-rails
 
 RUBY VERSION
    ruby 3.0.0p0

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ChaptersController < ApplicationController
-  before_action :set_chapter, on: %i[show edit update]
+  before_action :set_chapter, only: %i[show edit update]
 
   def show; end
 
@@ -13,12 +13,26 @@ class ChaptersController < ApplicationController
     render 'show'
   end
 
+  def new
+    @chapter = Chapter.new(campaign_id: params[:campaign_id])
+  end
+
+  def create
+    @chapter = Chapter.new(chapter_params)
+
+    puts @chapter.errors.full_messages unless @chapter.save
+
+    render partial: 'campaigns/partials/plot', locals: { campaign: @chapter.campaign }
+  end
+
   private
 
   def chapter_params
     params.require(:chapter).permit(
+    :name,
       :description,
-      :notes
+      :notes,
+      :campaign_id
     )
   end
 
