@@ -8,4 +8,16 @@ FactoryBot.define do
     act
     campaign
   end
+
+  factory :main_characteristic do
+    name { 'name' }
+    value { 10 }
+    label { 'label' }
+
+    for_master_character
+
+    trait :for_master_character do
+      association :characterized, factory: :master_character
+    end
+  end
 end

@@ -1,4 +1,4 @@
-<turbo-frame id = 'new_chapter'>
+<turbo-frame id = 'chapters'>
   <h3>Новая глава:</h3>
   <%= form_with model: @chapter do |form| %>
     <% puts new_chapter_fields.inspect %>
@@ -11,4 +11,5 @@
 
     <%= form.submit 'Создать', class: 'btn btn-success' %>
   <% end %>
+  <%= link_to 'Отмена', :back %>
 </turbo-frame>

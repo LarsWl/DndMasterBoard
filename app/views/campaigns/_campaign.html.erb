@@ -1,0 +1,8 @@
+<div class = 'col'> <h2><%= campaign.name %></h2></div>
+<%= render partial: 'information', locals: { campaign: campaign} %>
+
+<div class = 'col'> <h3>Сюжет</h3></div>
+<%= render partial: 'plot', locals: { campaign: campaign} %>
+
+<div class = 'col'><h3>Персонажи</h3></div>
+<%= render partial: 'characters', locals: { campaign: campaign} %>

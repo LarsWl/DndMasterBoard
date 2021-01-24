@@ -1,0 +1,13 @@
+<div class = 'container-fluid master_characters'>
+  <%= turbo_stream_from 'characters' %>
+
+  <%= turbo_frame_tag 'characters', class: 'row' do %>
+    <% campaign.master_characters.each do |master_character| %>
+      <%= render partial: '/master_characters/card', locals: { master_character: master_character} %>
+    <% end %>
+  <% end %>
+
+  <turbo-frame id = 'new_character'>
+    <%= link_to 'Создать Персонажа Мастера', new_master_character_path(params: { master_character: { campaign_id: campaign.id } }) %>
+  </turbo-frame>
+</div>

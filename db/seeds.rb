@@ -1,7 +1,16 @@
+user = User.new
+user.email = 'email@mail.ru'
+user.nickname = 'nick'
+user.password = '123123'
+user.save
+
+
 campaign = Campaign.create(name: 'campaign_1',
                            description: 'description ' * 30,
                            notes: 'notes ' * 30,
                            history: 'history ' * 30)
+
+campaign_member = CampaignMember.create(role: 'master', user: user, campaign: campaign)
 
 1.upto 3 do |i|
   chapter = Chapter.create(name: "chapter_#{i}",

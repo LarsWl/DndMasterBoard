@@ -2,6 +2,8 @@
 
 require 'active_support/core_ext/integer/time'
 
+ActionCable.server.config.logger = Logger.new(nil)
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

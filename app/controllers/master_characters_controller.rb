@@ -7,6 +7,16 @@ class MasterCharactersController < ApplicationController
 
   def update
     @master_character.update(master_character_params)
+
+    render @master_character
+  end
+
+  def new
+    @master_character = MasterCharacter.new(master_character_params)
+  end
+
+  def create
+    @master_character = MasterCharacter.create(master_character_params)
   end
 
   private
@@ -19,7 +29,10 @@ class MasterCharactersController < ApplicationController
     params.require(:master_character).permit(
       :description,
       :notes,
-      :name
+      :name,
+      :portrait,
+      :campaign_id,
+      :act_id
     )
   end
 end

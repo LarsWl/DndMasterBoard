@@ -19,6 +19,12 @@ module ChaptersHelper
       label: 'Описание'
     }
 
+    fields[:notes] = {
+      input: :text_area,
+      ckeditor_id: 'notes_edit',
+      label: 'Заметки'
+    }
+
     fields
   end
 end

@@ -1,8 +1,0 @@
-<div class = 'container-fluid characters'>
-  <div class = 'row'>
-    <% puts campaign.master_characters.inspect %>
-    <% campaign.master_characters.each do |master_character| %>
-      <%= render partial: '/master_characters/partials/card', locals: { master_character: master_character} %>
-    <% end %>
-  </div>
-</div>

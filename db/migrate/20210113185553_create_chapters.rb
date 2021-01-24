@@ -7,6 +7,8 @@ class CreateChapters < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :notes
 
+      t.integer :position
+
       t.belongs_to :campaign
 
       t.timestamps

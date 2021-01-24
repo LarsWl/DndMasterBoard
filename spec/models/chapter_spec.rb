@@ -7,9 +7,9 @@ RSpec.describe Chapter, type: :model do
     it 'create new record' do
       chapter_attributes = FactoryBot.attributes_for(:chapter)
 
-      count_before_create = Chapter.count
       chapter = Chapter.new(chapter_attributes)
-      chapter.campaign = Campaign.first
+      chapter.campaign = FactoryBot.create(:campaign)
+      count_before_create = Chapter.count
       chapter.save
       count_after_create = Chapter.count
 

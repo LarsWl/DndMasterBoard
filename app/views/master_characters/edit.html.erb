@@ -1,0 +1,17 @@
+<% record_information_attributes(@master_character).each do |attribute| %>
+  <%= turbo_frame_tag attribute[:name] do%>
+    <%=form_with(model: @master_character) do |form| %>
+      <%= content_tag :div,
+                      'data-controller' => 'ckeditor',
+                      'data-ckeditor-id' => "#{attribute[:id]}" do%>
+        <div class = 'input-group mb-1 mt-2'>
+          <%= form.send(attribute[:type], attribute[:name], class: 'form-control', id: "#{attribute[:id]}", rows: 10) %>
+        </div>
+
+        <div class = 'input-group mb-1 mt-2'>
+          <%= form.submit 'Сохранить', class: 'btn btn-primary'%>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

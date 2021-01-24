@@ -4,7 +4,7 @@ class CampaignsController < ApplicationController
   before_action :set_campaign, only: %i[show update edit]
 
   def index
-    @campaigns = Campaign.includes(:master_characters, :chapters).all
+    @campaigns = current_user.campaigns.includes(:master_characters, :chapters).all
   end
 
   def show; end

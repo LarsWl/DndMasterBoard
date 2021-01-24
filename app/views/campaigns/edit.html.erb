@@ -2,8 +2,8 @@
   <%= turbo_frame_tag attribute[:name] do%>
     <%=form_with(model: @campaign) do |form| %>
       <%= content_tag :div,
-                      'data-controller' => 'campaigns',
-                      'data-campaigns-id' => "#{attribute[:id]}" do%>
+                      'data-controller' => 'ckeditor',
+                      'data-ckeditor-id' => "#{attribute[:id]}" do%>
         <div class = 'input-group mb-1 mt-2'>
           <%= form.send(attribute[:type], attribute[:name], class: 'form-control', id: "#{attribute[:id]}", rows: 10) %>
         </div>

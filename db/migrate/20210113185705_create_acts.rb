@@ -8,6 +8,8 @@ class CreateActs < ActiveRecord::Migration[6.1]
       t.string :notes
       t.string :plot
 
+      t.integer :position
+
       t.belongs_to :chapter
 
       t.timestamps

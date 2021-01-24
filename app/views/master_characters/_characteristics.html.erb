@@ -1,0 +1,11 @@
+<div class = 'characteristics_and_portrait'>
+  <div class = 'portrait'>
+    <%= render partial: 'master_characters/master_character_portrait_uploader', locals: { master_character: master_character} %>
+  </div>
+
+  <%= turbo_stream_from 'main_characteristics' %>
+
+  <turbo-frame id = 'main_characteristics' class = 'characteristics row'>
+    <%= render master_character.main_characteristics %>
+  </turbo-frame>
+</div>

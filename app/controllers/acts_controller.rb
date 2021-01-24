@@ -7,6 +7,8 @@ class ActsController < ApplicationController
 
   def update
     @act.update(act_params)
+
+    render 'show'
   end
 
   private

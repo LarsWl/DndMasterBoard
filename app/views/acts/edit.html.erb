@@ -1,8 +1,28 @@
 <% record_information_attributes(@act).each do |attribute| %>
   <%= turbo_frame_tag attribute[:name] do %>
     <%=form_with(model: @act) do |form| %>
+      <%= content_tag :div,
+                      'data-controller' => 'ckeditor',
+                      'data-ckeditor-id' => "#{attribute[:id]}" do%>
+        <div class = 'input-group mb-1 mt-2'>
+          <%= form.send(attribute[:type], attribute[:name], rows: 10, id: "#{attribute[:id]}") %>
+        </div>
+
+        <div class = 'input-group mb-1 mt-2'>
+          <%= form.submit 'Сохранить', class: 'btn btn-primary'%>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= turbo_frame_tag 'plot' do %>
+  <%=form_with(model: @act) do |form| %>
+    <%= content_tag :div,
+                    'data-controller' => 'ckeditor',
+                    'data-ckeditor-id' => "plot_editor" do%>
       <div class = 'input-group mb-1 mt-2'>
-        <%= form.send(attribute[:type], attribute[:name], class: 'form-control', rows: 10) %>
+        <%= form.text_area :plot, rows: 10, id: "plot_editor" %>
       </div>
 
       <div class = 'input-group mb-1 mt-2'>

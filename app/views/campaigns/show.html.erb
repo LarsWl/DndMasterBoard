@@ -1,12 +1,5 @@
 <turbo-frame id = 'body' class = 'col-9 ml-auto'>
   <div class = 'row campaign'>
-    <div class = 'col'> <h2><%= @campaign.name %></h2></div>
-    <%= render partial: 'campaigns/partials/information', locals: { campaign: @campaign} %>
-
-    <div class = 'col'> <h3>Сюжет</h3></div>
-    <%= render partial: 'campaigns/partials/plot', locals: { campaign: @campaign} %>
-
-    <div class = 'col'><h3>Персонажи</h3></div>
-    <%= render partial: 'campaigns/partials/characters', locals: { campaign: @campaign} %>
+    <%= render @campaign %>
   </div>
 </turbo-frame>

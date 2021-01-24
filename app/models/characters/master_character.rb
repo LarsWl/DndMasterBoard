@@ -1,2 +1,0 @@
-class MasterCharacter < Character
-end

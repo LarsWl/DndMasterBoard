@@ -1,0 +1,3 @@
+<%= turbo_stream.append 'characters' do %>
+  <%= render partial: 'master_characters/card', locals: { master_character: @master_character } %>
+<% end %>

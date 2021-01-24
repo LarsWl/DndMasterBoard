@@ -18,11 +18,11 @@ class ChaptersController < ApplicationController
   end
 
   def create
-    @chapter = Chapter.new(chapter_params)
+    @chapter = Chapter.create(chapter_params)
 
-    puts @chapter.errors.full_messages unless @chapter.save
-
-    render partial: 'campaigns/partials/plot', locals: { campaign: @chapter.campaign }
+    respond_to do |format|
+      format.html { render partial: 'campaigns/plot', locals: { campaign: @chapter.campaign } }
+    end
   end
 
   private

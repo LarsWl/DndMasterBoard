@@ -1,0 +1,21 @@
+<%= turbo_frame_tag dom_id(main_characteristic),
+                class:'main_characteristic col-2',
+                'data-controller' => 'characteristics',
+                'data-characteristics-value' => main_characteristic.value,
+                'data-characteristics-id' => main_characteristic.id do %>
+  <%#= turbo_frame_tag dom_id(main_characteristic) do %>
+    <label>
+      <%= main_characteristic.name %>
+    </label>
+    <div class = 'characteristic_block'>
+      <div class = 'value_with_buttons'>
+        <button data-action = 'characteristics#decrease'>-</button>
+        <div class = 'value' data-characteristics-target = 'value'></div>
+        <button data-action = 'characteristics#increase'>+</button>
+      </div>
+      <div class = 'modifier'>
+        <%= main_characteristic.modifier %>
+      </div>
+    </div>
+  <%# end %>
+<% end %>

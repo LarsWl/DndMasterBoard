@@ -17,3 +17,63 @@
     padding: 1rem;
   }
 }
+
+.master_character {
+  .characteristics_and_portrait {
+    display: flex;
+
+    .portrait {
+      flex: 25%;
+      margin-right: 1rem;
+      img {
+        width: 100%;
+      }
+    }
+
+    .characteristics {
+      display: flex;
+      flex: 75%;
+
+      .main_characteristic {
+        padding: 0.5rem;
+        text-align: center;
+
+        label {
+          font-weight: bold;
+        }
+
+        .characteristic_block {
+          padding: 0.6rem;
+          text-align: center;
+          border: 1px orange solid;
+          border-radius: 30px;
+
+          .value_with_buttons {
+            display: flex;
+            text-align: center;
+
+            button {
+              flex: 33%;
+              color: white;
+              width: 30px;
+              height: 30px;
+              background-color: orange;
+              margin: 0.5rem 0.5rem;
+              border: 0;
+              border-radius: 100%;
+            }
+
+            .value {
+              flex: 33%;
+              vertical-align: center;
+            }
+          }
+
+          .modifier {
+            border-top: 1px orange solid;
+          }
+        }
+      }
+    }
+  }
+}

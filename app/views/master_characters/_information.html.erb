@@ -1,0 +1,30 @@
+<div class = 'information'>
+  <div class = 'information_attributes'>
+    <% record_information_attributes(master_character).each do |attribute| %>
+      <%= content_tag :div,
+                      class:'information__block',
+                      'data-controller' => 'expand',
+                      'data-expand-id' => "editor_#{attribute[:id]}",
+                      'data-expand-inactive-text' => '+',
+                      'data-expand-active-text' => '-' do %>
+        <div class = 'd-flex justify-content-between'>
+          <h5><%= attribute[:title] %></h5>
+          <button class = 'btn btn-primary'
+                  data-action = "expand#expand"
+                  data-expand-target = 'expandButton'
+          >
+          </button>
+        </div>
+
+        <%= turbo_frame_tag(attribute[:name], 'data-expand-target' => 'expandValue') do %>
+          <%= sanitize attribute[:text] %>
+
+          <%= link_to 'Редактировать', edit_master_character_path(master_character) %>
+        <% end %>
+
+        <div data-expand-target = 'test'>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
