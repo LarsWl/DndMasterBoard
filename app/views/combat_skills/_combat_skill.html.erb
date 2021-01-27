@@ -1,0 +1,29 @@
+<%= turbo_frame_tag dom_id(combat_skill), class: 'combat_skill' do %>
+  <%= content_tag :div,
+                  class:'information__block',
+                  'data-controller' => 'expand',
+                  'data-expand-id' => dom_id(combat_skill),
+                  'data-expand-inactive-text' => '+',
+                  'data-expand-active-text' => '-' do %>
+    <div class = 'd-flex justify-content-between'>
+      <h5><%= combat_skill.name %></h5>
+      <button class = 'btn btn-primary'
+              data-action = "expand#expand"
+              data-expand-target = 'expandButton'
+      >
+      </button>
+    </div>
+
+    <%= turbo_frame_tag(attribute[:name], 'data-expand-target' => 'expandValue') do %>
+      <div class = 'd-flex'>
+        <strong>Наносимый урон:</strong><%= combat_skill.damage %>
+        <strong>Модификатор к попаданию:</strong><%= combat_skill.hit_modifier %>
+      </div>
+
+      <div class = 'text'>
+        <%= sanitize combat_skill.description %>
+      </div>
+      <%= link_to 'Редактировать', edit_combat_skill_path(combat_skill) %>
+    <% end %>
+  <% end %>
+<% end %>

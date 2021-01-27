@@ -1,9 +1,9 @@
 <turbo-frame id = 'new_character'>
   <h3>Новый персонаж мастера:</h3>
-  <%= content_tag :div, data: { controller: 'masterCharacters' } do %>
+  <%= content_tag :div, data: { controller: 'reset-form' } do %>
     <%= form_with model: @master_character,
-                  data: { action: 'turbo:submit-end->masterCharacters#reset', 'masterCharacters-target' => 'form' } do |form| %>
-      <% new_chapter_fields.each_pair do |field_name, field_params| %>
+                  data: { action: 'turbo:submit-end->reset-form#reset', 'reset-form-target' => 'form' } do |form| %>
+      <% new_master_character_fields.each_pair do |field_name, field_params| %>
         <%= form.label(field_params[:label], class: 'form-label') if field_params[:label].present? %>
         <div class = 'input-group'>
           <%= form.send(field_params[:input], field_name,

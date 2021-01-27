@@ -1,5 +1,0 @@
-<% if master_character.portrait.representable? %>
-  <%= image_tag(master_character.portrait.representation(resize_to_limit: [480, 480])) %>
-<% else %>
-  <%= image_tag "blank_portrait.png", alt: "Download file" %>
-<% end %>

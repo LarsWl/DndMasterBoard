@@ -1,0 +1,8 @@
+<%= turbo_frame_tag dom_id(character),
+                    class: 'character_card col-3' do %>
+  <%= link_to character, 'data-turbo-frame' => "_top" do %>
+    <div class = 'title'><h5><%= character.name %></h5></div>
+  <% end %>
+
+  <%= render partial: 'characters/character_portrait', locals: { character: character} %>
+<% end %>

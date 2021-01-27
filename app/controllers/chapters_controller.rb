@@ -14,7 +14,7 @@ class ChaptersController < ApplicationController
   end
 
   def new
-    @chapter = Chapter.new(campaign_id: params[:campaign_id])
+    @chapter = Chapter.new(chapter_params)
   end
 
   def create

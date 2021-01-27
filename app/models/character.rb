@@ -6,8 +6,6 @@ class Character < ApplicationRecord
   belongs_to :user, optional: true
 
   has_one_attached :portrait
-
-  has_many :skills
   has_many :main_characteristics, as: :characterized
 
   after_create :set_main_characteristics

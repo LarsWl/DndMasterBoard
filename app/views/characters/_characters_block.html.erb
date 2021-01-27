@@ -1,0 +1,30 @@
+<%= content_tag :div,
+                class: 'characters',
+                data: {
+                  controller: 'acts'
+                } do %>
+  <div class = 'character_tabs'>
+    <button class = 'tab' data-action = 'acts#choose_masters'>
+      Персонажи Мастера
+    </button>
+    <button class = 'tab' data-action = 'acts#choose_enemies'>
+      Враги
+    </button>
+  </div>
+  <div data-acts-target = 'masterCharactersBlock'>
+    <%= render partial: 'master_characters/cards_collection',
+               locals: {
+                 master_characters: master_characters,
+                 new_character_params: { campaign_id: campaign&.id, act_id: act&.id }
+               }
+    %>
+  </div>
+  <div data-acts-target = 'enemyCharactersBlock'>
+    <%= render partial: 'enemies/cards_collection',
+               locals: {
+                 enemies: enemies,
+                 new_character_params: { campaign_id: campaign&.id, act_id: act&.id }
+               }
+    %>
+  </div>
+<% end %>

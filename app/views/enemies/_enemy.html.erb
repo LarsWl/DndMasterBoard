@@ -1,0 +1,6 @@
+<div class = 'col'> <h2><%= enemy.name %></h2></div>
+<%= render partial: 'characteristics', locals: { enemy: enemy } %>
+<%= render partial: 'information', locals: { enemy:enemy } %>
+<%= render partial: 'skills', locals: { enemy: enemy } %>
+
+<%= link_to 'Перейти к кампании', campaign_path(enemy.campaign) if enemy.campaign.present? %>

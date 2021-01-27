@@ -1,8 +1,8 @@
-<% if master_character.portrait.representable? %>
-  <%= image_tag(master_character.portrait.representation(resize_to_limit: [480, 480])) %>
+<% if character.portrait.representable? %>
+  <%= image_tag(character.portrait.representation(resize_to_limit: [480, 480])) %>
 <% else %>
-  <%= form_with model: master_character do |form| %>
-    <div class = 'image_upload'>
+  <%= form_with model: character do |form| %>
+    <div class='image_upload'>
       <label for='file_input'>
         <%= image_tag "blank_portrait.png", alt: "Download file" %>
       </label>

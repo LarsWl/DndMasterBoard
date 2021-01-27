@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_113048) do
+ActiveRecord::Schema.define(version: 2021_01_27_193632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "act_characters", force: :cascade do |t|
+    t.bigint "act_id"
+    t.bigint "character_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["act_id"], name: "index_act_characters_on_act_id"
+    t.index ["character_id"], name: "index_act_characters_on_character_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -111,6 +120,17 @@ ActiveRecord::Schema.define(version: 2021_01_23_113048) do
     t.index ["campaign_id"], name: "index_characters_on_campaign_id"
   end
 
+  create_table "combat_skills", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "description", default: ""
+    t.integer "hit_modifier", default: 0
+    t.string "damage", default: ""
+    t.bigint "character_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_combat_skills_on_character_id"
+  end
+
   create_table "equipment", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "description"
@@ -130,16 +150,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_113048) do
     t.string "characterized_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "skills", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "description", default: "", null: false
-    t.integer "kind", default: 0
-    t.bigint "character_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["character_id"], name: "index_skills_on_character_id"
   end
 
   create_table "users", force: :cascade do |t|

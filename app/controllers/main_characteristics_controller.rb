@@ -1,9 +1,5 @@
 class MainCharacteristicsController < ApplicationController
-  before_action :set_main_characteristic, only: %i[show edit update]
-
-  def show; end
-
-  def edit; end
+  before_action :set_main_characteristic, only: %i[update]
 
   def update
     @main_characteristic.update(main_characteristic_params)

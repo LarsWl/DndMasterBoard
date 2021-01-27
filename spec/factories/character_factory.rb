@@ -1,12 +1,23 @@
 FactoryBot.define do
-  factory :master_character do
-    name { 'master_character' }
-    description { 'description' }
-    notes { 'notes' }
-    type { 'MasterCharacter' }
+  factory :character do
+    factory :master_character do
+      name { 'master_character' }
+      description { 'description' }
+      notes { 'notes' }
+      type { 'MasterCharacter' }
 
-    act
-    campaign
+      campaign
+    end
+
+    factory :enemy do
+      name { 'master_character' }
+      description { 'description' }
+      notes { 'notes' }
+      type { 'Enemy' }
+
+      campaign
+    end
+
   end
 
   factory :main_characteristic do

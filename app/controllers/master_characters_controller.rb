@@ -8,7 +8,7 @@ class MasterCharactersController < ApplicationController
   def update
     @master_character.update(master_character_params)
 
-    render @master_character
+    render 'show'
   end
 
   def new
@@ -17,6 +17,11 @@ class MasterCharactersController < ApplicationController
 
   def create
     @master_character = MasterCharacter.create(master_character_params)
+
+    if master_character_params[:act_id].present?
+      act = Act.find(master_character_params[:act_id])
+      act.master_characters << @master_character
+    end
   end
 
   private

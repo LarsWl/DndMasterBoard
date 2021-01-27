@@ -5,4 +5,10 @@
 <%= render partial: 'plot', locals: { campaign: campaign} %>
 
 <div class = 'col'><h3>Персонажи</h3></div>
-<%= render partial: 'characters', locals: { campaign: campaign} %>
+<%= render partial: 'characters/characters_block',
+           locals: {
+             act: nil,
+             campaign: campaign,
+             master_characters: campaign.master_characters,
+             enemies: campaign.enemies
+           } %>

@@ -1,0 +1,21 @@
+<turbo-frame id = 'new_character'>
+  <h3>Новый враг:</h3>
+  <%= content_tag :div, data: { controller: 'reset-form' } do %>
+    <%= form_with model: @enemy,
+                  data: { action: 'turbo:submit-end->reset-form#reset', 'reset-form-target' => 'form' } do |form| %>
+      <% new_enemy_fields.each_pair do |field_name, field_params| %>
+        <%= form.label(field_params[:label], class: 'form-label') if field_params[:label].present? %>
+        <div class = 'input-group'>
+          <%= form.send(field_params[:input], field_name,
+                        class: 'form-control',
+                        id: field_params[:ckeditor_id])
+          %>
+        </div>
+      <% end %>
+
+      <%= form.submit 'Создать', class: 'btn btn-success' %>
+    <% end %>
+  <% end %>
+
+  <%= link_to 'Отмена', :back %>
+</turbo-frame>

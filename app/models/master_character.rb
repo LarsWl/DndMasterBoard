@@ -1,3 +1,4 @@
 class MasterCharacter < Character
-  after_create_commit { broadcast_append_to 'characters' }
+  has_many :act_characters
+  has_many :acts, through: :act_characters
 end

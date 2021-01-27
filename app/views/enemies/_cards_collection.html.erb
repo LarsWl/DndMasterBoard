@@ -1,0 +1,16 @@
+<div class = 'container-fluid master_characters'>
+  <%= turbo_stream_from 'enemies' %>
+
+  <%= turbo_frame_tag 'enemies', class: 'row' do %>
+    <% enemies.each do |enemy| %>
+      <%= render partial: 'characters/card', locals: { character: enemy} %>
+    <% end %>
+  <% end %>
+
+  <turbo-frame id = 'new_character'>
+    <%= link_to 'Создать Врага',
+                new_enemy_path(params: {
+                  enemy: new_character_params
+                }) %>
+  </turbo-frame>
+</div>

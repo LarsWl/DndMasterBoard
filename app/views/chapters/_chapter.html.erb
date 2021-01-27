@@ -18,8 +18,12 @@
     </turbo_frame>
 
     <ul type = 'square' class = 'acts_block' data-expand-target = 'expandValue'>
-      <% chapter.acts.each_with_index do |act, index| %>
-        <li><h6><%= "Aкт #{act.position}. #{act.name}"%></h6></li>
+      <% if chapter.acts.present? %>
+        <% chapter.acts.each_with_index do |act, index| %>
+          <li><h6><%= "Aкт #{act.position}. #{act.name}"%></h6></li>
+        <% end %>
+      <% else %>
+        Акты еще не добавлены
       <% end %>
     </ul>
   </div>

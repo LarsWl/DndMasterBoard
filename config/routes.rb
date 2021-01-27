@@ -5,13 +5,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
   root to: 'campaigns#index'
 
   resources :campaigns
-  resources :chapters
-  resources :acts
-  resources :master_characters
-  resources :main_characteristics
+  resources :chapters, except: %i[index]
+  resources :acts, except: %i[index]
+  resources :master_characters, except: %i[index]
+  resources :main_characteristics, only: %i[update]
+  resources :enemies, except: %i[index]
+  resources :combat_skills, except: %i[show index]
 end

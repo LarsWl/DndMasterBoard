@@ -18,6 +18,13 @@
  */
 
 @import "bootstrap.min";
+a {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: orange;
+}
 
 .information {
   &__block {

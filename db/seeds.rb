@@ -21,7 +21,9 @@ campaign_member = CampaignMember.create(role: 'master', user: user, campaign: ca
 
   1.upto 2 do |j|
     act = Act.create(name: "act_#{j}", chapter: chapter, plot: 'plot ' * 30)
-    Enemy.create(name: "enemy_#{i*j}", description: 'description ' * 30, act: act)
-    MasterCharacter.create(name: "master_character_#{i*j}", description: 'description ' * 30, act: act, campaign: campaign)
+    e = Enemy.create(name: "enemy_#{i*j}", description: 'description ' * 30, campaign: campaign)
+    mc = MasterCharacter.create(name: "master_character_#{i*j}", description: 'description ' * 30, campaign: campaign)
+    act.enemies << e
+    act.master_characters << mc
   end
 end

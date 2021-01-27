@@ -25,6 +25,7 @@ export default class extends Controller {
 
 
     refresh() {
+        console.log('here')
         this.expandValueTarget.style.display = this.active ? 'block' : 'none'
         this.expandButtonTarget.innerHTML = this.active ? this.activeText : this.inactiveText
     }

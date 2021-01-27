@@ -23,4 +23,16 @@ FactoryBot.define do
 
     chapter
   end
+
+  factory :act_character do
+    act
+    character
+  end
+
+  def act_with_characters(master_characters_count: 2, enemies_count: 2)
+    FactoryBot.create(act) do
+      FactoryBot.create_list(:master_character, master_characters_count, acts: [act])
+      FactoryBot.create_list(:enemy, enemies_count, acts: [act])
+    end
+  end
 end
