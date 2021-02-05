@@ -1,4 +1,4 @@
-class ActsController < ApplicationController
+class ActsController < GameController
   before_action :set_act, only: %i[show edit update]
 
   def show; end

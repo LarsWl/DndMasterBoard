@@ -1,9 +1,12 @@
-user = User.new
-user.email = 'email@mail.ru'
-user.nickname = 'nick'
-user.password = '123123'
-user.save
+1.upto 10 do |i|
+  user = User.new
+  user.email = "email_#{i}@mail.ru"
+  user.nickname = "nick_#{i}"
+  user.password = '123123'
+  user.save
+end
 
+user = User.first
 
 campaign = Campaign.create(name: 'campaign_1',
                            description: 'description ' * 30,

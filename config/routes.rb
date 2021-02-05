@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  root to: 'campaigns#index'
+  root to: 'home#index'
 
   resources :campaigns
   resources :chapters, except: %i[index]
@@ -14,4 +14,10 @@ Rails.application.routes.draw do
   resources :main_characteristics, only: %i[update]
   resources :enemies, except: %i[index]
   resources :combat_skills, except: %i[show index]
+
+  resources :friends, only: %i[index create] do
+    get '/suggestions', action: 'suggestions', on: :collection
+    delete '/decline_request', action: 'decline_request', on: :member, as: :decline_request
+    patch '/accept_request', action: 'accept_request', on: :member, as: :accept_request
+  end
 end

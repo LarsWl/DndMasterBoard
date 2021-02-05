@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_193632) do
+ActiveRecord::Schema.define(version: 2021_02_04_205117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,9 +126,9 @@ ActiveRecord::Schema.define(version: 2021_01_27_193632) do
     t.integer "hit_modifier", default: 0
     t.string "damage", default: ""
     t.bigint "character_id"
+    t.string "character_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["character_id"], name: "index_combat_skills_on_character_id"
   end
 
   create_table "equipment", force: :cascade do |t|
@@ -140,16 +140,48 @@ ActiveRecord::Schema.define(version: 2021_01_27_193632) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "friend_id"
+    t.boolean "approved", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["friend_id", "user_id"], name: "index_friendships_on_friend_id_and_user_id", unique: true
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+  end
+
   create_table "main_characteristics", force: :cascade do |t|
     t.string "name"
     t.integer "value"
     t.string "modifier"
     t.string "label"
     t.integer "position"
+    t.integer "code"
     t.bigint "characterized_id"
     t.string "characterized_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+  end
+
+  create_table "player_skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "modifier", default: 0, null: false
+    t.boolean "proficiency", default: false
+    t.bigint "character_id"
+    t.bigint "main_characteristic_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_player_skills_on_character_id"
+    t.index ["main_characteristic_id"], name: "index_player_skills_on_main_characteristic_id"
   end
 
   create_table "users", force: :cascade do |t|

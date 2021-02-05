@@ -18,6 +18,7 @@ gem 'hotwire-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'redis-rails'
 gem 'pg', '~> 1.1'
+gem 'pg_search'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.0'
 gem 'sass-rails', '>= 6'
@@ -29,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do

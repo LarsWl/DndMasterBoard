@@ -1,0 +1,16 @@
+<div class = 'body col-9'>
+  <div class = 'row'>
+    <div class = 'col-6'>
+      <%= render partial: 'search_friends', locals: { possible_friends: @possible_friends } %>
+
+      <div class = 'friends row'>
+        <h3>Ваши друзья</h3>
+        <%= render partial: 'friend', collection: @friends %>
+      </div>
+    </div>
+
+    <div class= 'col-3'>
+      <%= render partial: 'friendship_requests' %>
+    </div>
+  </div>
+</div>

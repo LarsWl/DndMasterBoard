@@ -6,7 +6,8 @@ class CreateCombatSkills < ActiveRecord::Migration[6.1]
       t.integer :hit_modifier, default: 0
       t.string :damage, default: ''
 
-      t.belongs_to :character
+      t.bigint :character_id
+      t.string :character_type
 
       t.timestamps
     end

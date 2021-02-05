@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ChaptersController < ApplicationController
+class ChaptersController < GameController
   before_action :set_chapter, only: %i[show edit update]
 
   def show; end

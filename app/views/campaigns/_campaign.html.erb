@@ -12,3 +12,7 @@
              master_characters: campaign.master_characters,
              enemies: campaign.enemies
            } %>
+
+<div class = 'col'><h3>Игроки</h3></div>
+<%= render partial: 'campaign_members/players_card_collection',
+           locals: { campaign: campaign, players: campaign.campaign_members.where(role: 'player') } %>

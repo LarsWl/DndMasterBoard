@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CampaignsController < ApplicationController
+class CampaignsController < GameController
   before_action :set_campaign, only: %i[show update edit]
 
   def index

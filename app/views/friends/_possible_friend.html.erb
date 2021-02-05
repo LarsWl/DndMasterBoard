@@ -1,0 +1,13 @@
+<div class = 'possible_friend'>
+  <%= render partial: 'users/round_avatar', locals: { user: possible_friend } %>
+
+  <h6 class = 'nickname align-self-center'><%= possible_friend.nickname %></h6>
+
+  <%= turbo_frame_tag dom_id(possible_friend), class: 'request_button align-self-center' do %>
+    <%= button_to current_user.friendship_request_title(possible_friend),
+                  friends_path,
+                  method: :post,
+                  params: { friend_id: possible_friend.id },
+                  class: 'btn-primary align-self-center' %>
+  <% end %>
+</div>

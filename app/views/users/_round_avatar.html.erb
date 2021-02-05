@@ -1,0 +1,7 @@
+<div class = 'round_avatar'>
+  <% if user.avatar.representable? %>
+    <%= image_tag(user.avatar.representation(resize_to_limit: [480, 480])) %>
+  <% else %>
+    <%= image_tag "blank_portrait.png", alt: "Download file" %>
+  <% end %>
+</div>

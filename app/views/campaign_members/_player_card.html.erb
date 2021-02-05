@@ -1,0 +1,9 @@
+<div class = 'player_card'>
+  <% if player.user.avatar.representable? %>
+    <%= image_tag(player.user.avatar.representation(resize_to_limit: [480, 480])) %>
+  <% else %>
+    <%= image_tag "blank_portrait.png", alt: "Download file" %>
+  <% end %>
+  <h5><%= player.user.nickname %></h5>
+  Персонаж: <%= player.character.name %>
+</div>

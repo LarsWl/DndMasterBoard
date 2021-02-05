@@ -1,0 +1,7 @@
+<h4>Заявки в друзья</h4>
+
+<%= turbo_stream_from current_user.friendship_requests_turbo_stream_name %>
+
+<%= turbo_frame_tag current_user.friendship_requests_turbo_stream_name do %>
+  <%= render partial: 'friendship_request', collection: current_user.friendship_requests.map(&:user), as: :possible_friend %>
+<% end %>

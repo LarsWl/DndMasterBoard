@@ -1,13 +1,8 @@
-class MainCharacteristicsController < ApplicationController
+class MainCharacteristicsController < GameController
   before_action :set_main_characteristic, only: %i[update]
 
   def update
     @main_characteristic.update(main_characteristic_params)
-
-    respond_to do |format|
-      format.turbo_stream
-      format.html { render @main_characteristic }
-    end
   end
 
   private

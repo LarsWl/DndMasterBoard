@@ -1,4 +1,4 @@
-class EnemiesController < ApplicationController
+class EnemiesController < GameController
   before_action :set_enemy, only: %i[show edit update]
 
   def show; end

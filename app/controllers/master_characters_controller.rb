@@ -1,4 +1,4 @@
-class MasterCharactersController < ApplicationController
+class MasterCharactersController < GameController
   before_action :set_master_character, only: %i[show edit update]
 
   def show; end

@@ -1,0 +1,35 @@
+.possible_friend {
+  display: flex;
+
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+
+  border-bottom: 1px gray solid;
+
+  .nickname {
+    margin-left: 1rem;
+  }
+
+  .request_button {
+    margin-left: auto;
+  }
+}
+
+.friends {
+  border-top: 1px gray solid;
+  padding-top: 0.5rem;
+
+  .friend {
+    margin: 1.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    -webkit-box-shadow: 5px 7px 10px 0px rgba(92,89,92,1);
+    -moz-box-shadow: 5px 7px 10px 0px rgba(92,89,92,1);
+    box-shadow: 5px 7px 10px 0px rgba(92,89,92,1);
+
+    border-left: orange 3px solid;
+    border-top: orange 3px solid;
+  }
+}

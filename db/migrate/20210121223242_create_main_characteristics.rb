@@ -6,6 +6,7 @@ class CreateMainCharacteristics < ActiveRecord::Migration[6.1]
       t.string :modifier
       t.string :label
       t.integer :position
+      t.integer :code
 
       t.bigint :characterized_id
       t.string :characterized_type

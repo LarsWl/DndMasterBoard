@@ -1,17 +1,17 @@
 <%= content_tag :div,
                 class: 'characters',
                 data: {
-                  controller: 'acts'
+                  controller: 'characters'
                 } do %>
   <div class = 'character_tabs'>
-    <button class = 'tab' data-action = 'acts#choose_masters'>
+    <button class = 'tab' data-action = 'characters#choose_masters'>
       Персонажи Мастера
     </button>
-    <button class = 'tab' data-action = 'acts#choose_enemies'>
+    <button class = 'tab' data-action = 'characters#choose_enemies'>
       Враги
     </button>
   </div>
-  <div data-acts-target = 'masterCharactersBlock'>
+  <div data-characters-target = 'masterCharactersBlock'>
     <%= render partial: 'master_characters/cards_collection',
                locals: {
                  master_characters: master_characters,
@@ -19,7 +19,7 @@
                }
     %>
   </div>
-  <div data-acts-target = 'enemyCharactersBlock'>
+  <div data-characters-target = 'enemyCharactersBlock'>
     <%= render partial: 'enemies/cards_collection',
                locals: {
                  enemies: enemies,

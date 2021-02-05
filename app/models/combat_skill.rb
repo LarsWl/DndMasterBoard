@@ -1,3 +1,2 @@
-class CombatSkill < ApplicationRecord
-  belongs_to :character
+class CombatSkill < Skill
 end

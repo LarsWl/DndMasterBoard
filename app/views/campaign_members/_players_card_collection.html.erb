@@ -1,0 +1,7 @@
+<div class = 'players_card_collection row'>
+  <% players.each do |player| %>
+    <div class = 'col-3'>
+      <%= render partial: 'player_card', locals: { player: player } %>
+    </div>
+  <% end %>
+</div>

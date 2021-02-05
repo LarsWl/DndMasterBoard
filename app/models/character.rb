@@ -7,6 +7,7 @@ class Character < ApplicationRecord
 
   has_one_attached :portrait
   has_many :main_characteristics, as: :characterized
+  has_many :combat_skills, as: :character
 
   after_create :set_main_characteristics
 
@@ -14,7 +15,7 @@ class Character < ApplicationRecord
 
   def set_main_characteristics
     DEFAULT_MAIN_CHARACTERISTICS.each_pair do |c_name, c_value|
-      MainCharacteristic.create(name: c_name, value: c_value, characterized: self)
+      MainCharacteristic.create(name: c_name, value: c_value[:value], code: c_value[:code], characterized: self)
     end
   end
 end

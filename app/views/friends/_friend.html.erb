@@ -1,0 +1,5 @@
+<%= turbo_frame_tag friend.dom_id_as_friend, class: 'friend col-2' do %>
+  <%= render partial: 'users/round_avatar', locals: { user: friend } %>
+
+  <h6 class = 'nickname align-self-center'><%= friend.nickname %></h6>
+<% end %>

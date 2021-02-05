@@ -1,0 +1,16 @@
+<div id = 'search_friends'
+             class = 'search_friends'
+             data-controller = 'search-friends'
+             data-search-friends-turbo = 'search_results'>
+  <div class = 'd-flex'>
+    <h5>Найти друзей</h5>
+    <input type = 'text' class = 'form-control'
+           placeholder="Введите никнейм"
+           data-action ='keyup->search-friends#search'
+           data-search-friends-target = 'searchInput'
+    >
+  </div>
+
+  <div data-search-friends-target = 'searchResults' class = 'search_results'>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+<%= turbo_stream.remove current_user.friendship_requests_turbo_stream_name,
+                        partial: 'friendship_request', locals: { possible_friend: @friend }
+%>

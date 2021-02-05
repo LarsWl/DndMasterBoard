@@ -7,6 +7,15 @@ class MainCharacteristic < Characteristic
 
   default_scope { order(:position) }
 
+  enum code: {
+    'STR' => 0,
+    'INT' => 1,
+    'DEX' => 2,
+    'WIS' => 3,
+    'CHA' => 4,
+    'CON' => 5
+  }
+
   def compute_modifier
     (value - 10) / 2
   end

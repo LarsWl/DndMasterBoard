@@ -1,4 +1,4 @@
-class CombatSkillsController < ApplicationController
+class CombatSkillsController < GameController
   before_action :set_combat_skill, only: %i[edit update]
 
   def edit; end

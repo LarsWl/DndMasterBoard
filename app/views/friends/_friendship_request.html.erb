@@ -1,0 +1,17 @@
+<%= turbo_frame_tag dom_id(possible_friend) do %>
+  <%= render partial: 'users/round_avatar', locals: { user: possible_friend } %>
+
+  <h6 class = 'nickname align-self-center'><%= possible_friend.nickname %></h6>
+
+  <div class = 'approve_actions'>
+    <%= button_to 'Принять заявку',
+                  accept_request_friend_path(possible_friend),
+                  method: :patch,
+                  class: 'btn-primary align-self-center' %>
+
+    <%= button_to 'Отклонить заявку',
+                  decline_request_friend_path(possible_friend),
+                  method: :delete,
+                  class: 'btn-primary align-self-center' %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DndMasterBoard</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= yield :head %>
+    <%= turbo_include_tags %>
+    <%= javascript_pack_tag 'application' %>
+    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+  </head>
+
+  <body>
+    <%=render partial: 'layouts/header' %>
+    <div class = 'container-fluid'>
+      <div class = 'row'>
+        <%= render partial: 'layouts/sidebar' %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
