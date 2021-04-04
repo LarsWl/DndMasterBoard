@@ -2,8 +2,13 @@
 
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
+
+  devise_scope :users do
+    get '/profile/:nickname', to: 'users/users#profile', as: :user
+  end
 
   root to: 'home#index'
 
@@ -14,6 +19,7 @@ Rails.application.routes.draw do
   resources :main_characteristics, only: %i[update]
   resources :enemies, except: %i[index]
   resources :combat_skills, except: %i[show index]
+  resources :player_characters
 
   resources :friends, only: %i[index create] do
     get '/suggestions', action: 'suggestions', on: :collection

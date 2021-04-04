@@ -1,0 +1,50 @@
+<turbo-frame id = 'body' class = 'col-9 ml-auto mt-3'>
+  <div class = 'row'>
+    <%= content_tag :div,
+                    class: 'col-4',
+                    'data-controller' => 'player-character-form' do
+    %>
+      <%= form_with model: @player_character do |f| %>
+        <div class = 'mb-3'>
+          <%= f.label 'Выберите имя персонажу', class: 'form-label' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class = 'mb-3'>
+          <%= f.label 'Выберите расу', class: 'form-label' %>
+          <%= f.select :race_id,
+                       Race.all.map { |race| [race.name,
+                                              race.id,
+                                              { 'description' => race.description, 'id' => dom_id(race) }] },
+                       {},
+                       class: 'form-select',
+                       id: 'race_select',
+                       'data-action' => 'player-character-form#change_race_description' %>
+          <div data-player-character-form-target= "raceDescription" class = 'mt-2'>
+          </div>
+        </div>
+
+        <div class = 'mb-3'>
+          <%= f.label 'Выберите класс', class: 'form-label' %>
+          <%= f.select :character_class_id,
+                       CharacterClass.all.map { |character_class| [character_class.name,
+                                                                   character_class.id,
+                                                                  {
+                                                                     'description' => character_class.description,
+                                                                     'id' => dom_id(character_class) }]
+                                                                  },
+                       {},
+                       class: 'form-select',
+                       id: 'character_class_select',
+                       'data-action' => 'player-character-form#change_character_class_description' %>
+          <div data-player-character-form-target= "characterClassDescription" class = 'mt-2'>
+          </div>
+        </div>
+
+        <div class = 'mb-3'>
+          <%= f.submit 'Создать', class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</turbo-frame>

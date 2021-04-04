@@ -30,3 +30,17 @@ campaign_member = CampaignMember.create(role: 'master', user: user, campaign: ca
     act.master_characters << mc
   end
 end
+
+%w[warrior mag cleric paladin berserk].each do |c_class|
+  CharacterClass.create(name: c_class, description: "This is #{c_class}")
+end
+
+%w[elf dwarf human ork half-man].each do |race|
+  Race.create(name: race, description: "This is #{race}")
+end
+
+player_character = PlayerCharacter.new(name: 'player_name')
+player_character.character_class = CharacterClass.last
+player_character.race = Race.last
+player_character.user = User.first
+player_character.save

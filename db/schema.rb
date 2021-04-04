@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_205117) do
+ActiveRecord::Schema.define(version: 2021_02_21_181832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,14 @@ ActiveRecord::Schema.define(version: 2021_02_04_205117) do
     t.index ["campaign_id"], name: "index_chapters_on_campaign_id"
   end
 
+  create_table "character_classes", force: :cascade do |t|
+    t.string "name", default: ""
+    t.string "hit_dice", default: ""
+    t.string "description", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "characteristics", force: :cascade do |t|
     t.string "name"
     t.integer "value"
@@ -104,20 +112,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_205117) do
     t.string "characterized_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "characters", force: :cascade do |t|
-    t.string "name", default: "", null: false
-    t.string "description", default: "", null: false
-    t.string "notes", default: "", null: false
-    t.string "type"
-    t.bigint "act_id"
-    t.bigint "campaign_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["act_id"], name: "index_characters_on_act_id"
-    t.index ["campaign_id"], name: "index_characters_on_campaign_id"
   end
 
   create_table "combat_skills", force: :cascade do |t|
@@ -129,6 +123,20 @@ ActiveRecord::Schema.define(version: 2021_02_04_205117) do
     t.string "character_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "enemies", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "description", default: "", null: false
+    t.string "notes", default: "", null: false
+    t.integer "experience"
+    t.float "level"
+    t.bigint "act_id"
+    t.bigint "campaign_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["act_id"], name: "index_enemies_on_act_id"
+    t.index ["campaign_id"], name: "index_enemies_on_campaign_id"
   end
 
   create_table "equipment", force: :cascade do |t|
@@ -153,7 +161,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_205117) do
   create_table "main_characteristics", force: :cascade do |t|
     t.string "name"
     t.integer "value"
-    t.string "modifier"
+    t.integer "modifier"
     t.string "label"
     t.integer "position"
     t.integer "code"
@@ -161,6 +169,19 @@ ActiveRecord::Schema.define(version: 2021_02_04_205117) do
     t.string "characterized_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "master_characters", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "description", default: "", null: false
+    t.string "notes", default: "", null: false
+    t.bigint "act_id"
+    t.bigint "campaign_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["act_id"], name: "index_master_characters_on_act_id"
+    t.index ["campaign_id"], name: "index_master_characters_on_campaign_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -172,16 +193,44 @@ ActiveRecord::Schema.define(version: 2021_02_04_205117) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
+  create_table "player_characters", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "history", default: ""
+    t.string "description", default: ""
+    t.integer "max_hp"
+    t.integer "current_hp"
+    t.integer "level", default: 1
+    t.bigint "character_class_id"
+    t.bigint "race_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_class_id"], name: "index_player_characters_on_character_class_id"
+    t.index ["race_id"], name: "index_player_characters_on_race_id"
+    t.index ["user_id"], name: "index_player_characters_on_user_id"
+  end
+
   create_table "player_skills", force: :cascade do |t|
     t.string "name"
+    t.string "short_name"
+    t.integer "value"
     t.integer "modifier", default: 0, null: false
     t.boolean "proficiency", default: false
+    t.integer "skill_type"
     t.bigint "character_id"
+    t.string "character_type"
     t.bigint "main_characteristic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_player_skills_on_character_id"
     t.index ["main_characteristic_id"], name: "index_player_skills_on_main_characteristic_id"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name", default: ""
+    t.string "description", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

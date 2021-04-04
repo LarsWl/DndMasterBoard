@@ -7,6 +7,6 @@ module DefaultCharacteristics
     'Интеллект' => { value: '10', code: 'INT' },
     'Мудрость' => { value: '10', code: 'WIS' },
     'Харизма' => { value: '10', code: 'CHA' },
-    'Выносливость' => { value: '10', code: 'CON' }
+    'Вынослив.' => { value: '10', code: 'CON' }
   }.freeze
 end

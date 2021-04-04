@@ -1,0 +1,14 @@
+<turbo-frame id = 'body' class = 'col-9 ml-auto'>
+  <div class = 'row'>
+    <% @player_characters.each do |character| %>
+      <div class = 'campaign_card col-3 ml-3 mr-3 mt-3p-3'>
+        <%= render partial: 'card', locals: { player_character: character }%>
+      </div>
+    <% end %>
+  </div>
+  <div class = 'row'>
+    <div class = 'col-3'>
+      <%= link_to 'Создать нового персонажа', new_player_character_path, 'data-turbo-frame' => "_top" %>
+    </div>
+  </div>
+</turbo-frame>

@@ -1,0 +1,38 @@
+.player_character_card {
+  -webkit-box-shadow: 5px 7px 10px 0px rgba(92,89,92,1);
+  -moz-box-shadow: 5px 7px 10px 0px rgba(92,89,92,1);
+  box-shadow: 5px 7px 10px 0px rgba(92,89,92,1);
+
+  border-left: orange 3px solid;
+  border-top: orange 3px solid;
+
+  .title {
+    border-bottom: orange 4px solid;
+  }
+
+  .campaign_description {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+
+.player_character {
+  .main_characteristics {
+    .main_characteristic {
+      text-align: center;
+      border: 1px orange solid;
+      margin: 0 0.5rem;
+      border-radius: 20px;
+
+      label {
+        font-size: smaller;
+      }
+
+      .characteristic_block {
+        .modifier {
+          border-top: 1px orange solid;
+        }
+      }
+    }
+  }
+}

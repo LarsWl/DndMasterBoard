@@ -3,7 +3,7 @@ class CreateMainCharacteristics < ActiveRecord::Migration[6.1]
     create_table :main_characteristics do |t|
       t.string :name
       t.integer :value
-      t.string :modifier
+      t.integer :modifier
       t.string :label
       t.integer :position
       t.integer :code

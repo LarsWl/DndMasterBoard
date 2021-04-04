@@ -3,7 +3,7 @@
 require 'simplecov'
 SimpleCov.start
 require 'database_cleaner/active_record'
-require 'database_cleaner/active_record'
+require 'database_cleaner/redis'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -21,7 +21,7 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner[:active_record].clean_with :truncation
   end
 
 

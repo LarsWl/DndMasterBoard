@@ -1,0 +1,17 @@
+<div class = 'row main_characteristics'>
+  <% main_characteristics.each do |main_characteristic| %>
+    <div class = 'col-1 main_characteristic'>
+      <label>
+        <%= main_characteristic.name %>
+      </label>
+      <div class = 'characteristic_block'>
+        <div>
+          <%= main_characteristic.value %>
+        </div>
+        <div class = 'modifier'>
+          <%= main_characteristic.modifier %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

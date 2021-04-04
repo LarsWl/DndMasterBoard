@@ -1,0 +1,18 @@
+<div class = 'row characteristics_and_portrait'>
+  <div class = 'col-3 portrait'>
+    <%= render partial: 'characters/character_portrait_uploader', locals: { character: player_character } %>
+  </div>
+
+  <div class = 'col-9 ml-4'>
+    <%= render partial: 'base_information', locals: { player_character: player_character } %>
+    <div class = 'row'>
+      <%= render  partial: 'main_characteristics', locals: { main_characteristics: player_character.main_characteristics }%>
+    </div>
+    <div class = 'row'>
+      <div class = 'col-3'>
+        <h6> Hit Points </h6>
+        <%= player_character.current_hp %> / <%= player_character.max_hp %>
+      </div>
+    </div>
+  </div>
+</div>

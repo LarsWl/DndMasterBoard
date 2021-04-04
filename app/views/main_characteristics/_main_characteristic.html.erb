@@ -3,7 +3,6 @@
                 'data-controller' => 'characteristics',
                 'data-characteristics-value' => main_characteristic.value,
                 'data-characteristics-id' => main_characteristic.id do %>
-  <%#= turbo_frame_tag dom_id(main_characteristic) do %>
     <label>
       <%= main_characteristic.name %>
     </label>
@@ -17,5 +16,4 @@
         <%= main_characteristic.modifier %>
       </div>
     </div>
-  <%# end %>
 <% end %>

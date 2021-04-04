@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :campaign_members
   has_many :campaigns, through: :campaign_members
+  has_many :player_characters
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
   has_one_attached :avatar

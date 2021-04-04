@@ -1,6 +1,8 @@
 class Character < ApplicationRecord
   include DefaultCharacteristics
 
+  self.abstract_class = true
+
   belongs_to :act, optional: true
   belongs_to :campaign, optional: true
   belongs_to :user, optional: true
