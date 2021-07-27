@@ -2,6 +2,7 @@ class MainCharacteristic < Characteristic
   before_save :set_modifier
 
   after_save_commit { broadcast_replace_to 'main_characteristics' }
+  after_commit :update_player_skills, on: %i[update], if: :player_character_characteristic?
 
   acts_as_list scope: :characterized
 
@@ -18,6 +19,16 @@ class MainCharacteristic < Characteristic
 
   def compute_modifier
     (value - 10) / 2
+  end
+
+  def player_character_characteristic?
+    characterized.instance_of? PlayerCharacter
+  end
+
+  private
+
+  def update_player_skills
+    PlayerSkill.where(main_characteristic_id: id).each(&:save)
   end
 
   def set_modifier

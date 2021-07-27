@@ -2,11 +2,13 @@ module DefaultCharacteristics
   extend ActiveSupport::Concern
 
   DEFAULT_MAIN_CHARACTERISTICS = {
-    'Сила' => { value: '10', code: 'STR' },
-    'Ловкость' => { value: '10', code: 'DEX' },
-    'Интеллект' => { value: '10', code: 'INT' },
-    'Мудрость' => { value: '10', code: 'WIS' },
-    'Харизма' => { value: '10', code: 'CHA' },
-    'Вынослив.' => { value: '10', code: 'CON' }
+    'Сила' => { value: '8', code: 'STR' },
+    'Ловкость' => { value: '8', code: 'DEX' },
+    'Интеллект' => { value: '8', code: 'INT' },
+    'Мудрость' => { value: '8', code: 'WIS' },
+    'Харизма' => { value: '8', code: 'CHA' },
+    'Вынослив.' => { value: '8', code: 'CON' }
   }.freeze
+
+  PERMIT_MAIN_CHARACTERISTICS = DEFAULT_MAIN_CHARACTERISTICS.to_a.map(&:second).map { |c| c[:code] }
 end

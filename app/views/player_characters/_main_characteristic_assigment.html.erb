@@ -1,0 +1,8 @@
+<div>
+  <%= Character::DEFAULT_MAIN_CHARACTERISTICS.each do |name, value| %>
+    <div class = 'form-group'>
+      <%= form.label name %>
+      <%= form.text_field value[:code], readonly: true %>
+    </div>
+  <% end %>
+</div>

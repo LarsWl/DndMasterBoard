@@ -4,6 +4,7 @@ class PlayerCharacter < Character
 
   belongs_to :race
   belongs_to :character_class
+  belongs_to :background
   belongs_to :user
 
   has_many :player_skills, as: :character

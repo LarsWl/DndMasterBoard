@@ -2,24 +2,24 @@ module DefaultPlayerSkills
   extend ActiveSupport::Concern
 
   ADDITIONAL_SKILLS = [
-    { name: 'Акробатика', characteristic: 'DEX' },
-    { name: 'Скрытность', characteristic: 'DEX' },
-    { name: 'Ловкость рук', characteristic: 'DEX' },
-    { name: 'Атлетика', characteristic: 'STR' },
-    { name: 'Понимание животных', characteristic: 'WIS' },
-    { name: 'Проницательность', characteristic: 'WIS' },
-    { name: 'Медицина', characteristic: 'WIS' },
-    { name: 'Восприятие', characteristic: 'WIS' },
-    { name: 'Выживание', characteristic: 'WIS' },
-    { name: 'Тайны', characteristic: 'INT' },
-    { name: 'История', characteristic: 'INT' },
-    { name: 'Исследование', characteristic: 'INT' },
-    { name: 'Природа', characteristic: 'INT' },
-    { name: 'Религия', characteristic: 'INT' },
-    { name: 'Обман', characteristic: 'CHA' },
-    { name: 'Запугивание', characteristic: 'CHA' },
-    { name: 'Выступление', characteristic: 'CHA' },
-    { name: 'Убеждегие', characteristic: 'CHA' }
+    { name: 'Акробатика', code: 'ACR', characteristic: 'DEX' },
+    { name: 'Скрытность', code: 'STE', characteristic: 'DEX' },
+    { name: 'Ловкость рук', code: 'SLE', characteristic: 'DEX' },
+    { name: 'Атлетика', code: 'ATH', characteristic: 'STR' },
+    { name: 'Понимание животных', code: 'ANI', characteristic: 'WIS' },
+    { name: 'Проницательность', code: 'INS', characteristic: 'WIS' },
+    { name: 'Медицина', code: 'MED', characteristic: 'WIS' },
+    { name: 'Восприятие',code: 'PERC', characteristic: 'WIS' },
+    { name: 'Выживание', code: 'SUR', characteristic: 'WIS' },
+    { name: 'Тайны', code: 'ARC', characteristic: 'INT' },
+    { name: 'История', code: 'HIS', characteristic: 'INT' },
+    { name: 'Исследование', code: 'INV', characteristic: 'INT' },
+    { name: 'Природа', code: 'NAT', characteristic: 'INT' },
+    { name: 'Религия', code: 'REL', characteristic: 'INT' },
+    { name: 'Обман', code: 'DEC', characteristic: 'CHA' },
+    { name: 'Запугивание', code: 'INT', characteristic: 'CHA' },
+    { name: 'Выступление', code: 'PERF', characteristic: 'CHA' },
+    { name: 'Убеждение', code: 'PERS', characteristic: 'CHA' }
   ]
 
   SAVING_THROWS = [
