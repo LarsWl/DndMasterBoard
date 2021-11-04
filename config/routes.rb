@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :campaigns
+  resources :campaigns do
+    get '/new_player', action: 'new_player', on: :member, as: :new_player
+  end
   resources :chapters, except: %i[index]
   resources :acts, except: %i[index]
   resources :master_characters, except: %i[index]

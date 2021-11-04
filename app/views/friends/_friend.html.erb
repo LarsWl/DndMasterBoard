@@ -2,4 +2,6 @@
   <%= render partial: 'users/round_avatar', locals: { user: friend } %>
 
   <h6 class = 'nickname align-self-center'><%= friend.nickname %></h6>
+
+  <%= yield if block_given? %>
 <% end %>

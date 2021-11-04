@@ -36,3 +36,27 @@
     }
   }
 }
+
+.new_player_character {
+  .characteristics_assignment {
+    .characteristic_field {
+      display: flex;
+      margin: 0.5rem 1rem;
+
+      .characteristic_button {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        background-color: orange;
+        color: white;
+      }
+
+      .characteristic_input {
+        text-align: center;
+        border: 0;
+        width: 80%;
+      }
+    }
+  }
+}

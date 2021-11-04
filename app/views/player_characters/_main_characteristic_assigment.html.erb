@@ -1,8 +1,40 @@
-<div>
-  <%= Character::DEFAULT_MAIN_CHARACTERISTICS.each do |name, value| %>
-    <div class = 'form-group'>
+<div class = 'row characteristics_assignment'
+     data-controller = 'characteristics-assignment'>
+
+  <div class = 'd-flex'>
+    <h6> Оставшиеся очки: &nbsp;</h6>
+    <div data-characteristics-assignment-target = 'scoreCount'>
+    </div>
+  </div>
+  <% Character::DEFAULT_MAIN_CHARACTERISTICS.each do |name, value| %>
+    <div class = 'form-group col-2'>
       <%= form.label name %>
-      <%= form.text_field value[:code], readonly: true %>
+      <div class = 'characteristic_field'>
+        <%= content_tag :button,
+                        type: 'button',
+                       class:  'btn characteristic_button',
+                        action: 'decrease',
+                       "data-action" => 'characteristics-assignment#update_characteristic',
+                       for: "#{value[:code]}_input" do
+        %>
+        -
+        <% end %>
+        <%= form.text_field value[:code],
+                            value: value[:value],
+                            readonly: true,
+                            id: "#{value[:code]}_input" ,
+                            class: 'characteristic_input'
+        %>
+        <%= content_tag :button,
+                        type: 'button',
+                       class:  'btn characteristic_button',
+                        action: 'increase',
+                       "data-action" => 'characteristics-assignment#update_characteristic',
+                       for: "#{value[:code]}_input" do
+        %>
+        +
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

@@ -15,6 +15,16 @@ class PlayerCharactersController < GameController
     @player_character = PlayerCharacter.new(player_character_params)
     @player_character.user = current_user
     @player_character.save
+
+    main_characteristics_params.each_pair do |code, value|
+      @player_character.main_characteristics.find_by(code: code)&.update(value: value)
+    end
+
+    redirect_to @player_character
+  end
+
+  def destroy
+    @player_character.destroy
   end
 
   private
@@ -25,6 +35,10 @@ class PlayerCharactersController < GameController
       :race_id,
       :character_class_id
     )
+  end
+
+  def main_characteristics_params
+    params.require(:player_character).permit(PlayerCharacter::PERMIT_MAIN_CHARACTERISTICS)
   end
 
   def set_player_character

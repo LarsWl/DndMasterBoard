@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_181832) do
+ActiveRecord::Schema.define(version: 2021_11_04_231836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,24 @@ ActiveRecord::Schema.define(version: 2021_02_21_181832) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chapter_id"], name: "index_acts_on_chapter_id"
+  end
+
+  create_table "backgrounds", force: :cascade do |t|
+    t.string "name", default: "f"
+    t.string "description", default: "f"
+    t.string "proficient_skills", default: [], array: true
+    t.string "languages", default: [], array: true
+    t.string "personalization", default: ""
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "campaign_invitations", force: :cascade do |t|
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "campaign_members", force: :cascade do |t|
