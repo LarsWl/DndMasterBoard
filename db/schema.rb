@@ -77,9 +77,11 @@ ActiveRecord::Schema.define(version: 2021_11_04_231836) do
   create_table "campaign_invitations", force: :cascade do |t|
     t.bigint "sender_id", null: false
     t.bigint "receiver_id", null: false
+    t.bigint "campaign_id"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["campaign_id"], name: "index_campaign_invitations_on_campaign_id"
   end
 
   create_table "campaign_members", force: :cascade do |t|

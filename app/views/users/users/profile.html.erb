@@ -1,5 +1,9 @@
 <div class = 'row'>
   <div class = 'col'>
-    <%= current_user.nickname %>
+    <h2>Имя пользователя: <%= current_user.nickname %></h2>
   </div>
+</div>
+<div class = 'row'>
+  <h5>Текущие приглашения</h5>
+  <%= render partial: 'users/users/incoming_campaign_invitations' %>
 </div>

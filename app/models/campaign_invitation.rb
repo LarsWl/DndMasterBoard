@@ -7,10 +7,23 @@ class CampaignInvitation < ApplicationRecord
     initialized: 0,
     sent: 10,
     accepted: 20,
-    decline: 30
+    declined: 30
   }
 
-  def send
+  def send!
+    sent!
+  end
 
+  def accept!
+    accepted!
+
+    CampaignMemberRepository.new.create(
+      user: receiver,
+      campaign: campaign
+    )
+  end
+
+  def decline!
+    declined!
   end
 end

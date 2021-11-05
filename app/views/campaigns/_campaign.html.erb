@@ -16,4 +16,4 @@
 <div class = 'col'><h3>Игроки</h3></div>
 <%= render partial: 'campaign_members/players_card_collection',
            locals: { campaign: campaign, players: campaign.campaign_members.where(role: 'player') } %>
-<%= render partial: 'new_player', locals: { friends: current_user.friends } %>
+<%= render partial: 'campaign_invitations', locals: { friends: current_user.friends, campaign: campaign } %>

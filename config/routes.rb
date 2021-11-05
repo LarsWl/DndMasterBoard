@@ -12,9 +12,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :campaigns do
-    get '/new_player', action: 'new_player', on: :member, as: :new_player
-  end
+  resources :campaigns
   resources :chapters, except: %i[index]
   resources :acts, except: %i[index]
   resources :master_characters, except: %i[index]
@@ -22,6 +20,10 @@ Rails.application.routes.draw do
   resources :enemies, except: %i[index]
   resources :combat_skills, except: %i[show index]
   resources :player_characters
+  resources :campaign_invitations, only: %i[create] do
+    post '/accept', action: 'accept', on: :member, as: :accept
+    post '/decline', action: 'decline', on: :member, as: :decline
+  end
 
   resources :friends, only: %i[index create] do
     get '/suggestions', action: 'suggestions', on: :collection

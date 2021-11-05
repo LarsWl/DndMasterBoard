@@ -5,5 +5,7 @@
     <%= image_tag "blank_portrait.png", alt: "Download file" %>
   <% end %>
   <h5><%= player.user.nickname %></h5>
-  Персонаж: <%= player.character.name %>
+  <% if player.character.present? %>
+    Персонаж: <%= player.character.name %>
+  <% end %>
 </div>

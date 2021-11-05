@@ -28,4 +28,8 @@ class User < ApplicationRecord
         .search_by_nickname(search_nickname)
         .where.not(id: approved_friends.map(&:id) << id)
   end
+
+  def incoming_campaign_invitations
+    CampaignInvitationRepository.new.incoming_for_user(self)
+  end
 end

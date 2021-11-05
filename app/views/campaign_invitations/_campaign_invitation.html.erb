@@ -1,0 +1,17 @@
+<%= turbo_frame_tag "campaign_invitation_#{receiver.id}" do %>
+  <%= render(layout: 'friends/friend', locals: { friend: receiver.decorate }) do %>
+    <%= button_to campaign_invitation_create_button_title(invitation),
+                  campaign_invitations_path,
+                  method: :post,
+                  params: {
+                    campaign_invitation: {
+                      sender_id: current_user.id,
+                      receiver_id: receiver.id,
+                      campaign_id: campaign.id
+                    }
+                  },
+                  class: 'btn-primary align-self-center',
+                  disable: invitation.present?
+    %>
+  <% end %>
+<% end %>

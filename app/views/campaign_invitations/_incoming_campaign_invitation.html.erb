@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "incoming_campaign_invitation_#{invitation.sender.id}" do %>
+  <%= render(layout: 'friends/friend', locals: { friend: invitation.sender.decorate }) do %>
+    <p> Кампания: <%= invitation.campaign.name %></p>
+
+    <% if invitation.sent? %>
+      <%= button_to 'Принять приглашение',
+                    accept_campaign_invitation_path(invitation),
+                    method: :post,
+                    class: 'btn-primary align-self-center'
+      %>
+      <%= button_to 'Отклонить приглашение',
+                    accept_campaign_invitation_path(invitation),
+                    method: :post,
+                    class: 'btn-primary align-self-center'
+      %>
+    <% else %>
+      <h6>Успешно принято!</h6>
+    <% end %>
+
+  <% end %>
+<% end %>
