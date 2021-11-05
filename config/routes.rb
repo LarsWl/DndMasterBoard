@@ -30,4 +30,9 @@ Rails.application.routes.draw do
     delete '/decline_request', action: 'decline_request', on: :member, as: :decline_request
     patch '/accept_request', action: 'accept_request', on: :member, as: :accept_request
   end
+
+  namespace :editor do
+    get '/', to: 'editor#index'
+    resources :master_characters
+  end
 end

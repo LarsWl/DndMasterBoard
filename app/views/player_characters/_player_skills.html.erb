@@ -1,25 +1,25 @@
 <div class = 'row'>
-  <div class = 'row'>
+  <div class = 'col-9'>
     <h4 class = 'm-4'>Способности персонажа</h4>
-    <div class = 'col-9'>
-      <div class = 'row'>
-        <% player_character.main_characteristics.each do |characteristic| %>
-          <div class = 'col-4'>
-            <h6 class = 'text-center'><%= characteristic.name %></h6>
-            <ul>
-              <% player_character.additional_skills.where(main_characteristic_id: characteristic.id).each do |ps| %>
-                <li>
-                  <%= ps.name %>: <%= ps.modifier %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      </div>
+    <div class = 'row'>
+      <% player_character.main_characteristics.each do |characteristic| %>
+        <% next if player_character.additional_skills.where(main_characteristic_id: characteristic.id).blank? %>
+
+        <div class = 'col-4'>
+          <h6 class = 'text-center'><%= characteristic.name %></h6>
+          <ul>
+            <% player_character.additional_skills.where(main_characteristic_id: characteristic.id).each do |ps| %>
+              <li>
+                <%= ps.name %>: <%= ps.modifier %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
 
-  <div class = 'row'>
+  <div class = 'col-3'>
     <h4 class = 'm-4'>Спасброски</h4>
     <ul>
       <% player_character.saving_throws.each do |st| %>
