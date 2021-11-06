@@ -18,7 +18,7 @@ module Game
     def accept
       @campaign_invitation.accept!
 
-      render partial: 'campaign_invitations/incoming_campaign_invitation', locals: { invitation: @campaign_invitation }
+      render partial: 'game/campaign_invitations/incoming_campaign_invitation', locals: { invitation: @campaign_invitation }
     end
 
     def decline

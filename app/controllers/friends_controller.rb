@@ -1,4 +1,4 @@
-class FriendsController < GameController
+class FriendsController < ApplicationController
   before_action :set_friend, only: %i[create]
   def index
     @friends = current_user.friends.decorate

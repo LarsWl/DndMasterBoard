@@ -4,6 +4,6 @@
       <%= render campaign.chapters %>
     </div>
 
-    <%= link_to 'Создать главу', new_chapter_path(params: { chapter: { campaign_id: campaign.id } }) %>
+    <%= link_to 'Создать главу', new_game_chapter_path(params: { chapter: { campaign_id: campaign.id } }) %>
   </turbo-frame>
 </div>

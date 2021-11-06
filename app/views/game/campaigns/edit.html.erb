@@ -1,6 +1,6 @@
 <% record_information_attributes(@campaign).each do |attribute| %>
   <%= turbo_frame_tag attribute[:name] do%>
-    <%=form_with(model: @campaign) do |form| %>
+    <%=form_with(model: [:game, @campaign]) do |form| %>
       <%= content_tag :div,
                       'data-controller' => 'ckeditor',
                       'data-ckeditor-id' => "#{attribute[:id]}" do%>

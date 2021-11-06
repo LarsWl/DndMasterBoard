@@ -3,4 +3,4 @@
 <%= render partial: 'information', locals: { enemy:enemy } %>
 <%= render partial: 'skills', locals: { enemy: enemy } %>
 
-<%= link_to 'Перейти к кампании', campaign_path(enemy.campaign) if enemy.campaign.present? %>
+<%= link_to 'Перейти к кампании', game_campaign_path(enemy.campaign) if enemy.campaign.present? %>

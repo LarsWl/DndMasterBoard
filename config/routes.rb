@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :campaigns
     resources :chapters, except: %i[index]
     resources :acts, except: %i[index]
-    resources :main_characteristics, only: %i[update]
     resources :combat_skills, except: %i[show index]
     resources :campaign_invitations, only: %i[create] do
       post '/accept', action: 'accept', on: :member, as: :accept
@@ -36,5 +35,6 @@ Rails.application.routes.draw do
     resources :master_characters
     resources :player_characters
     resources :enemies
+    resources :main_characteristics, only: %i[update]
   end
 end

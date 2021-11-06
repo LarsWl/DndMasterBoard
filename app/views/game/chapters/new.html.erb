@@ -1,6 +1,6 @@
 <turbo-frame id = 'chapters'>
   <h3>Новая глава:</h3>
-  <%= form_with model: @chapter do |form| %>
+  <%= form_with model: [:game, @chapter] do |form| %>
     <% puts new_chapter_fields.inspect %>
     <% new_chapter_fields.each_pair do |field_name, field_params| %>
       <%= form.label(field_params[:label], class: 'form-label') if field_params[:label].present? %>

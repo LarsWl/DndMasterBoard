@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "campaign_invitation_#{receiver.id}" do %>
   <%= render(layout: 'friends/friend', locals: { friend: receiver.decorate }) do %>
     <%= button_to campaign_invitation_create_button_title(invitation),
-                  campaign_invitations_path,
+                  game_campaign_invitations_path,
                   method: :post,
                   params: {
                     campaign_invitation: {

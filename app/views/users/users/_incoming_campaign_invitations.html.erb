@@ -1,7 +1,7 @@
 <turbo-frame id = 'incoming_campaign_invitations'>
   <row>
     <% current_user.incoming_campaign_invitations.each do |invitation| %>
-      <%= render partial: 'campaign_invitations/incoming_campaign_invitation', locals: { invitation: invitation } %>
+      <%= render partial: 'game/campaign_invitations/incoming_campaign_invitation', locals: { invitation: invitation } %>
     <% end %>
   </row>
 </turbo-frame>

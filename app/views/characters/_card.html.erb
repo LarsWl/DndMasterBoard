@@ -1,6 +1,6 @@
 <%= turbo_frame_tag dom_id(character),
                     class: 'character_card col-3' do %>
-  <%= link_to character, 'data-turbo-frame' => "_top" do %>
+  <%= link_to editor_character_path(character), 'data-turbo-frame' => "_top" do %>
     <div class = 'title'><h5><%= character.name %></h5></div>
   <% end %>
 

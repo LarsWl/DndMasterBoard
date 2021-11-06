@@ -3,7 +3,7 @@
   <div class = 'row'>
     <% friends.each do |friend| %>
       <div class = 'col-3'>
-        <%= render partial: 'campaign_invitations/campaign_invitation',
+        <%= render partial: 'game/campaign_invitations/campaign_invitation',
                    locals: {
                      receiver: friend,
                      invitation: CampaignInvitationRepository.new.incoming_for_user_by_campaign(friend, campaign),

@@ -1,6 +1,6 @@
 <% record_information_attributes(@chapter).each do |attribute| %>
   <%= turbo_frame_tag attribute[:name] do %>
-    <%=form_with(model: @chapter) do |form| %>
+    <%=form_with(model: [:game, @chapter]) do |form| %>
       <%= content_tag :div,
                       'data-controller' => 'ckeditor',
                       'data-ckeditor-id' => "#{attribute[:id]}" do%>

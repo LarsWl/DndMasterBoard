@@ -1,6 +1,6 @@
 <% record_information_attributes(@act).each do |attribute| %>
   <%= turbo_frame_tag attribute[:name] do %>
-    <%=form_with(model: @act) do |form| %>
+    <%=form_with(model: [:game, @act]) do |form| %>
       <%= content_tag :div,
                       'data-controller' => 'ckeditor',
                       'data-ckeditor-id' => "#{attribute[:id]}" do%>
@@ -17,7 +17,7 @@
 <% end %>
 
 <%= turbo_frame_tag 'plot' do %>
-  <%=form_with(model: @act) do |form| %>
+  <%=form_with(model: [:game, @act]) do |form| %>
     <%= content_tag :div,
                     'data-controller' => 'ckeditor',
                     'data-ckeditor-id' => "plot_editor" do%>

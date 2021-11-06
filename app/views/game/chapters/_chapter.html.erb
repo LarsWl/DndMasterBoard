@@ -6,7 +6,7 @@
   >
 
     <turbo_frame class = 'd-flex justify-content-between'>
-      <%= link_to(chapter_path(chapter), 'data-turbo-frame' => "_top") do %>
+      <%= link_to(game_chapter_path(chapter), 'data-turbo-frame' => "_top") do %>
         <h5><%= "Глава #{chapter.position}. #{chapter.name}"%></h5>
       <% end %>
 

@@ -2,4 +2,4 @@
 <%= render partial: 'characteristics', locals: { master_character: master_character} %>
 <%= render partial: 'information', locals: { master_character: master_character} %>
 
-<%= link_to 'Перейти к кампании', campaign_path(master_character.campaign) if master_character.campaign.present? %>
+<%= link_to 'Перейти к кампании', game_campaign_path(master_character.campaign) if master_character.campaign.present? %>

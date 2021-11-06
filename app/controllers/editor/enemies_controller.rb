@@ -1,5 +1,5 @@
 module Editor
-  class EnemiesController < GameController
+  class EnemiesController < EditorController
     before_action :set_enemy, only: %i[show edit update]
 
     def show; end

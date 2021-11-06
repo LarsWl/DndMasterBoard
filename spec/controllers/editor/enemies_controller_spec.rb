@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../rails_helper'
+require_relative '../../rails_helper'
 
-RSpec.describe EnemiesController do
+RSpec.describe Editor::EnemiesController do
   context 'user logged in' do
     let(:campaign) { FactoryBot.create(:campaign) }
     let(:act) { FactoryBot.create(:act) }

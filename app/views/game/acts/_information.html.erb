@@ -17,11 +17,11 @@
       <%= turbo_frame_tag(attribute[:name], 'data-expand-target' => 'expandValue') do %>
         <%= sanitize attribute[:text] %>
 
-        <%= link_to 'Редактировать', edit_act_path(act) %>
+        <%= link_to 'Редактировать', edit_game_act_path(act) %>
       <% end %>
     </div>
   <% end %>
 
 
-  <%= link_to 'Перейти к главе', chapter_path(act.chapter), 'data-turbo-frame'=>"_top" %>
+  <%= link_to 'Перейти к главе', game_chapter_path(act.chapter), 'data-turbo-frame'=>"_top" %>
 </div>

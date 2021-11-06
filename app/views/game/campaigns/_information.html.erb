@@ -18,7 +18,7 @@
       <%= turbo_frame_tag(attribute[:name], 'data-expand-target' => 'expandValue') do %>
         <%= sanitize attribute[:text] %>
 
-        <%= link_to 'Редактировать', edit_campaign_path(campaign) %>
+        <%= link_to 'Редактировать', edit_game_campaign_path(campaign) %>
       <% end %>
 
       <div data-expand-target = 'test'>
