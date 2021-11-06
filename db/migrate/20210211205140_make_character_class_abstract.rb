@@ -1,8 +1,16 @@
 class MakeCharacterClassAbstract < ActiveRecord::Migration[6.1]
   def change
-    rename_table :characters, :master_characters
+    create_table :master_characters do |t|
+      t.string :name, null: false, default: ''
+      t.string :description, null: false, default: ''
+      t.string :notes, null: false, default: ''
 
-    remove_column :master_characters, :type, :string
+      t.belongs_to :act
+      t.belongs_to :campaign
+      t.belongs_to :user
+
+      t.timestamps
+    end
 
     create_table :enemies do |t|
       t.string :name, null: false, default: ''
@@ -13,6 +21,7 @@ class MakeCharacterClassAbstract < ActiveRecord::Migration[6.1]
 
       t.belongs_to :act
       t.belongs_to :campaign
+      t.belongs_to :user
 
       t.timestamps
     end

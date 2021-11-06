@@ -153,10 +153,12 @@ ActiveRecord::Schema.define(version: 2021_11_04_231836) do
     t.float "level"
     t.bigint "act_id"
     t.bigint "campaign_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["act_id"], name: "index_enemies_on_act_id"
     t.index ["campaign_id"], name: "index_enemies_on_campaign_id"
+    t.index ["user_id"], name: "index_enemies_on_user_id"
   end
 
   create_table "equipment", force: :cascade do |t|
@@ -197,11 +199,12 @@ ActiveRecord::Schema.define(version: 2021_11_04_231836) do
     t.string "notes", default: "", null: false
     t.bigint "act_id"
     t.bigint "campaign_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
     t.index ["act_id"], name: "index_master_characters_on_act_id"
     t.index ["campaign_id"], name: "index_master_characters_on_campaign_id"
+    t.index ["user_id"], name: "index_master_characters_on_user_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -220,6 +223,7 @@ ActiveRecord::Schema.define(version: 2021_11_04_231836) do
     t.integer "max_hp"
     t.integer "current_hp"
     t.integer "level", default: 1
+    t.integer "available_points", default: 0
     t.bigint "character_class_id"
     t.bigint "race_id"
     t.bigint "user_id"

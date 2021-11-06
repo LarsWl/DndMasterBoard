@@ -5,6 +5,7 @@ class CampaignMember < ApplicationRecord
 
   enum role: {
     player: 0,
-    master: 1
+    master: 10,
+    npc: 20
   }
 end
