@@ -1,4 +1,4 @@
-module DefaultPlayerSkills
+module AvailablePlayerSkills
   extend ActiveSupport::Concern
 
   ADDITIONAL_SKILLS = [
