@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../rails_helper'
+require_relative '../../rails_helper'
 
-RSpec.describe ChaptersController do
+RSpec.describe Game::ChaptersController do
   context 'user not logged in' do
     before :all do
       @chapters = FactoryBot.create_list(:chapter, 10)

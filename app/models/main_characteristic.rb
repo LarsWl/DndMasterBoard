@@ -1,7 +1,6 @@
 class MainCharacteristic < Characteristic
   before_save :set_modifier
 
-  after_save_commit { broadcast_replace_to 'main_characteristics' }
   after_commit :update_player_skills, on: %i[update], if: :player_character_characteristic?
 
   acts_as_list scope: :characterized

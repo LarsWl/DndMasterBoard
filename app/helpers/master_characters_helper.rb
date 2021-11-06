@@ -12,7 +12,7 @@ module MasterCharactersHelper
 
     fields[:name] = {
       input: :text_field,
-      label: 'Название'
+      label: 'Имя'
     }
 
     fields[:description] = {

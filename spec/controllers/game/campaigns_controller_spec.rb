@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../rails_helper'
+require_relative '../../rails_helper'
 
-RSpec.describe CampaignsController do
+RSpec.describe Game::CampaignsController do
   context 'user not logged in' do
     before :all do
       @campaigns = FactoryBot.create_list(:campaign, 10)

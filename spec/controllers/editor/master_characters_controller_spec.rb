@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../rails_helper'
+require_relative '../../rails_helper'
 
-RSpec.describe MasterCharactersController do
+RSpec.describe Editor::MasterCharactersController do
   context 'user logged in' do
     let(:campaign) { FactoryBot.create(:campaign) }
     let(:act) { FactoryBot.create(:act) }

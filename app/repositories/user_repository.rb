@@ -1,3 +1,2 @@
 class UserRepository < BaseRepository
-
 end

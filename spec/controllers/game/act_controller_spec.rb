@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../rails_helper'
+require_relative '../../rails_helper'
 
-RSpec.describe ActsController do
+RSpec.describe Game::ActsController do
   context 'user logged in' do
     before :all do
       @act = FactoryBot.create_list(:act, 10)

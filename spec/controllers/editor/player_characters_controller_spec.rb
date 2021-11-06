@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../rails_helper'
+require_relative '../../rails_helper'
 
-RSpec.describe PlayerCharactersController do
+RSpec.describe Editor::PlayerCharactersController do
   context 'user logged in' do
     let(:character) { FactoryBot.create(:player_character) }
 

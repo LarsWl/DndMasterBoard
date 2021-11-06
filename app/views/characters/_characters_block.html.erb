@@ -12,11 +12,7 @@
     </button>
   </div>
   <div data-characters-target = 'masterCharactersBlock'>
-    <%= render partial: 'master_characters/cards_collection',
-               locals: {
-                 master_characters: master_characters,
-                 new_character_params: { campaign_id: campaign&.id, act_id: act&.id }
-               }
+    <%= render partial: 'master_characters/cards_collection', locals: { master_characters: master_characters }
     %>
   </div>
   <div data-characters-target = 'enemyCharactersBlock'>

@@ -12,18 +12,18 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  resources :campaigns
-  resources :chapters, except: %i[index]
-  resources :acts, except: %i[index]
-  resources :master_characters, except: %i[index]
-  resources :main_characteristics, only: %i[update]
-  resources :enemies, except: %i[index]
-  resources :combat_skills, except: %i[show index]
-  resources :player_characters
-  resources :campaign_invitations, only: %i[create] do
-    post '/accept', action: 'accept', on: :member, as: :accept
-    post '/decline', action: 'decline', on: :member, as: :decline
+  namespace :game do
+    resources :campaigns
+    resources :chapters, except: %i[index]
+    resources :acts, except: %i[index]
+    resources :main_characteristics, only: %i[update]
+    resources :combat_skills, except: %i[show index]
+    resources :campaign_invitations, only: %i[create] do
+      post '/accept', action: 'accept', on: :member, as: :accept
+      post '/decline', action: 'decline', on: :member, as: :decline
+    end
   end
+
 
   resources :friends, only: %i[index create] do
     get '/suggestions', action: 'suggestions', on: :collection
@@ -34,5 +34,7 @@ Rails.application.routes.draw do
   namespace :editor do
     get '/', to: 'editor#index'
     resources :master_characters
+    resources :player_characters
+    resources :enemies
   end
 end

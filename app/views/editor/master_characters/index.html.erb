@@ -1,0 +1,9 @@
+<turbo-frame id = 'body' class = 'col-9 ml-auto'>
+  <div class = 'row'>
+    <%= render layout: 'master_characters/cards_collection', locals: { master_characters: @master_characters } do %>
+        <%= link_to 'Создать Персонажа Мастера',
+                    new_editor_master_character_path,
+                    'data-turbo-frame' => "_top"%>
+    <% end %>
+  </div>
+</turbo-frame>

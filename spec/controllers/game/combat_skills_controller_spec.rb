@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../rails_helper'
+require_relative '../../rails_helper'
 
-RSpec.describe CombatSkillsController do
+RSpec.describe Game::CombatSkillsController do
   context 'user logged in' do
     let(:character) { FactoryBot.create(:enemy) }
 

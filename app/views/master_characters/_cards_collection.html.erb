@@ -7,10 +7,5 @@
     <% end %>
   <% end %>
 
-  <turbo-frame id = 'new_character'>
-    <%= link_to 'Создать Персонажа Мастера',
-                new_master_character_path(params: {
-                  master_character: new_character_params
-                }) %>
-  </turbo-frame>
+  <%= yield if block_given? %>
 </div>
